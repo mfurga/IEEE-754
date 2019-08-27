@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IEEE 754</title>
+
+  <script type="text/javascript" src="main.js"></script>
+
+  <style type="text/css">
+    * { margin: 0; padding: 0; }
+
+    body { font-family: Arial; font-size: 14px; }
+
+    .wrapper { margin: 0 auto; width: 920px; }
+
+    .sign     { background: #dadeff; }
+    .exponent { background: #ffdada; }
+    .fraction { background: #daffda; }
+
+    .input {
+      width: 300px;
+    }
+
+    #converter {
+      background: #efefef;
+      padding: 5px;
+    }
+
+    .converter-header {
+      padding: 20px 0;
+    }
+
+    .converter-table {
+      width: 100%;
+      border-spacing: 0px;
+    }
+
+    .converter-table tr {
+      text-align: center;
+    }
+
+    .converter-table th {
+      padding: 5px 3px;
+    }
+
+    .converter-table input {
+      margin: 3px;
+    }
+
+  </style>
+</head>
+<body>
+  <section id="header" class="wrapper">
+    <h2>IEEE 754 (IEEE Standard for Floating-Point Arithmetic) Converter</h2>
+  </section>
+
+  <section id="converter" class="wrapper">
+    <header class="converter-header">
+      <h3>IEEE 754 Single Precision Converter (binary32)</h3>
+    </header>
+    
+    <table class="converter-table">
+      <tr>
+        <th>Field</th>
+        <th class="sign">
+          <p>Sign</p>
+          <span>1 bit</span>
+        </th>
+        <th class="exponent">
+          <p>Exponent</p>
+          <span>8 bits</span>
+        </th>
+        <th class="fraction">
+          <p>Fraction</p>
+          <span>23 bits</span>
+        </th>
+      </tr>
+      <tr>
+        <th>Bit pattern</th>
+        <td class="sign">
+          <input type="checkbox" data-field="sign" data-id="31">
+        </td>
+        <td class="exponent">
+          <input type="checkbox" data-field="exponent" data-id="30">
+          <input type="checkbox" data-field="exponent" data-id="29">
+          <input type="checkbox" data-field="exponent" data-id="28">
+          <input type="checkbox" data-field="exponent" data-id="27">
+          <input type="checkbox" data-field="exponent" data-id="26">
+          <input type="checkbox" data-field="exponent" data-id="25">
+          <input type="checkbox" data-field="exponent" data-id="24">
+          <input type="checkbox" data-field="exponent" data-id="23">
+        </td>
+        <td class="fraction">
+          <input type="checkbox" data-field="fraction" data-id="22">
+          <input type="checkbox" data-field="fraction" data-id="21">
+          <input type="checkbox" data-field="fraction" data-id="20">
+          <input type="checkbox" data-field="fraction" data-id="19">
+          <input type="checkbox" data-field="fraction" data-id="18">
+          <input type="checkbox" data-field="fraction" data-id="17">
+          <input type="checkbox" data-field="fraction" data-id="16">
+          <input type="checkbox" data-field="fraction" data-id="15">
+          <input type="checkbox" data-field="fraction" data-id="14">
+          <input type="checkbox" data-field="fraction" data-id="13">
+          <input type="checkbox" data-field="fraction" data-id="12">
+          <input type="checkbox" data-field="fraction" data-id="11">
+          <input type="checkbox" data-field="fraction" data-id="10">
+          <input type="checkbox" data-field="fraction" data-id="9">
+          <input type="checkbox" data-field="fraction" data-id="8">
+          <input type="checkbox" data-field="fraction" data-id="7">
+          <input type="checkbox" data-field="fraction" data-id="6">
+          <input type="checkbox" data-field="fraction" data-id="5">
+          <input type="checkbox" data-field="fraction" data-id="4">
+          <input type="checkbox" data-field="fraction" data-id="3">
+          <input type="checkbox" data-field="fraction" data-id="2">
+          <input type="checkbox" data-field="fraction" data-id="1">
+          <input type="checkbox" data-field="fraction" data-id="0">
+        </td>
+      </tr>
+      <tr>
+        <th>Row value</th>
+        <td class="sign" id="sign-row-value">0</td>
+        <td class="exponent" id="exponent-row-value">0</td>
+        <td class="fraction" id="fraction-row-value">0</td>
+      </tr>
+      <tr>
+        <th>Encoded as</th>
+        <td class="sign" id="sign-encoded">+1</td>
+        <td class="exponent" id="exponent-encoded">2<sup>-126</sup> (denormalized)</td>
+        <td class="fraction" id="fraction-encoded"><b style="color: #f00;">0</b>.0 (denormalized)</td>
+      </tr>
+      <tr>
+        <th>Inputs</th>
+        <td colspan="2">Decimal representation</td>
+        <td><input type="text" name="decimal" class="input"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Hexadecimal representation (BE*)</td>
+        <td><input type="text" name="hexadecimal-be" class="input" value="ffffffff"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Hexadecimal representation (LE*)</td>
+        <td><input type="text" name="hexadecimal-le" class="input" value="00000000"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Binary representation</td>
+        <td><input type="text" name="binary" class="input" value="00000000000000000000000000000000"></td>
+      </tr>
+    </table>
+    <small>*BE = Big Endian</small>
+    <small>*LE = Little Endian</small>
+  </section>
+</body>
+</html>
